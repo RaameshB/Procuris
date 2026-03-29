@@ -32,8 +32,8 @@ export default function VendorEntry({ onSearch, error }) {
       <div className="relative w-full max-w-sm animate-slide-up">
         {/* Logo */}
         <div className="flex flex-col items-center mb-8">
-          <div className="w-14 h-14 rounded-2xl bg-accent-blue/10 border border-accent-blue/25 flex items-center justify-center mb-4 shadow-[0_0_32px_rgba(59,130,246,0.15)]">
-            <Shield className="w-7 h-7 text-accent-blue" />
+          <div className="w-20 h-20 p-2 rounded-2xl bg-accent-blue/10 border border-accent-blue/25 flex items-center justify-center mb-4 shadow-[0_0_32px_rgba(59,130,246,0.15)]">
+            <Shield className="w-20 h-20 text-accent-blue" />
           </div>
           <h1 className="text-6xl font-bold text-white">ProcureGuard</h1>
           <p className="text-xl text-slate-500 mt-1">

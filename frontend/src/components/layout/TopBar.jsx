@@ -42,7 +42,7 @@ export default function TopBar({ activeTab, vendor }) {
         <span className="text-md text-slate-600">Updated Mar 28, 2026</span>
 
         {/* Avatar */}
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-blue to-accent-cyan flex items-center justify-center text-xs font-bold text-white">
+        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-blue to-accent-cyan flex items-center justify-center text-xl font-bold text-white">
           U
         </div>
       </div>
