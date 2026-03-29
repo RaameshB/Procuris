@@ -2,4 +2,6 @@
 
 uv.lock
 
-.env
+*.env
+
+__pycache__/
