@@ -18,6 +18,10 @@ export default function Dashboard({
   initialVendorData = null,
 }) {
   const [activeTab, setActiveTab] = useState("overview");
+
+  useEffect(() => {
+    document.title = `${TAB_LABELS[activeTab]} – Procuris`;
+  }, [activeTab]);
   const [vendor, setVendor] = useState(initialVendorData);
   const skipInitialFetch = useRef(!!initialVendorData);
 
