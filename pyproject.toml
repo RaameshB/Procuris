@@ -10,4 +10,11 @@ dependencies = [
     "ipynotebook>=0.1.0",
     "jax>=0.9.2",
     "jupyter>=1.1.1",
+    "pandas>=3.0.1",
+    "polygon-api-client>=1.16.3",
+    "psycopg2-binary>=2.9.11",
+    "pydantic>=2.12.5",
+    "python-dotenv>=1.2.2",
+    "requests>=2.33.0",
+    "sqlalchemy>=2.0.48",
 ]
