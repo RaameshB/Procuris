@@ -15,7 +15,7 @@ bleach==6.3.0
 blinker==1.9.0
 bottle==0.13.4
 cachetools==6.2.6
-certifi==2026.2.25
+certifi==2025.11.12
 cffi==2.0.0
 charset-normalizer==3.4.6
 click==8.3.1
@@ -96,10 +96,12 @@ optax==0.2.8
 orbax-checkpoint==0.11.33
 orbax-export==0.0.8
 packaging==26.0
+pandas==3.0.1
 pandocfilters==1.5.1
 parso==0.8.6
 pexpect==4.9.0
 platformdirs==4.9.4
+polygon-api-client==1.16.3
 postgrest==2.28.3
 prometheus-client==0.24.1
 prompt-toolkit==3.0.52
@@ -107,6 +109,7 @@ propcache==0.4.1
 protobuf==7.34.1
 proxy-tools==0.1.0
 psutil==7.2.2
+psycopg2-binary==2.9.11
 ptyprocess==0.7.0
 pure-eval==0.2.3
 pyasn1==0.6.3
@@ -146,6 +149,7 @@ setuptools==82.0.1
 simplejson==3.20.2
 six==1.17.0
 soupsieve==2.8.3
+sqlalchemy==2.0.48
 stack-data==0.6.3
 storage3==2.28.3
 strenum==0.4.15
