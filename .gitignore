@@ -1,8 +1,10 @@
 /.venv/
 
+lightning_logs/
+
 uv.lock
 
-*.env
+# *.env
 
 data_pipeline/postgres_data/
 .idea/
