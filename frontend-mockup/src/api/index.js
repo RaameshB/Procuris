@@ -1,7 +1,7 @@
 // ─── Flask API stubs ──────────────────────────────────────────────────────────
 // Replace mock imports with these calls once the Flask backend is wired up.
 //
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export async function apiFetch(endpoint, options = {}) {
   const url = `${BASE_URL}${endpoint}`;
