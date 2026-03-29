@@ -1,0 +1,63 @@
+# =============================================================================
+# docker-compose.yml
+# Supply Chain Data Pipeline — PostgreSQL Service
+#
+# Usage:
+#   docker compose up -d          # Start in detached mode
+#   docker compose down           # Stop and remove containers
+#   docker compose down -v        # Stop and remove containers + volumes
+#
+# The database credentials here must match the values in your .env file.
+# =============================================================================
+
+version: "3.9"
+
+services:
+  postgres:
+    image: docker.io/library/postgres:15-alpine # Fully-qualified name required for Podman
+    container_name: supply_chain_postgres
+    restart: unless-stopped # Auto-restart on Docker daemon reboot
+
+    # ── Credentials & database name ──────────────────────────────────────────
+    # These default values are overridden if the corresponding shell environment
+    # variables are set (e.g. via a .env file passed with --env-file).
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-hackathonpassword}
+      POSTGRES_DB: ${POSTGRES_DB:-supplychain_db}
+
+      # Tune shared memory for better bulk-insert performance
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=en_US.UTF-8"
+
+    # ── Port mapping ──────────────────────────────────────────────────────────
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432" # HOST:CONTAINER
+
+    # ── Persistent volume ─────────────────────────────────────────────────────
+    # Data is bind-mounted locally to `./postgres_data` allowing easy inspection.
+    # The `:Z` flag ensures Podman maps SELinux labels properly.
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data:Z
+
+    # ── Health check ──────────────────────────────────────────────────────────
+    # Ensures downstream services (or your scripts) can wait until Postgres is
+    # truly ready to accept connections, not just "started".
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-admin} -d ${POSTGRES_DB:-supplychain_db}",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+    # ── Resource limits (optional, sensible defaults for a dev laptop) ────────
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 256M
+
