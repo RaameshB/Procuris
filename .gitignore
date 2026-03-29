@@ -1,5 +1,9 @@
 /.venv/
+
+uv.lock
+
+*.env
+
 data_pipeline/postgres_data/
-.env
 .idea/
 __pycache__/
