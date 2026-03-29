@@ -1,11 +1,14 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from services.vendors import get_vendor
 
 vendors_bp = Blueprint("vendors_bp", __name__, url_prefix="/api/vendors")
 
 
-@vendors_bp.get("/<vendor_name>")
-def get_overview(vendor_name):
+@vendors_bp.get("/")
+def get_overview():
+    print("hello")
+    vendor_name = request.args.get("vendor_name")
+    print("Vendor name:", vendor_name)
     vendor_data = get_vendor(vendor_name)
 
     if not vendor_data:

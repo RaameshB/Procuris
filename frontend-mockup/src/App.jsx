@@ -46,7 +46,10 @@ function AppFlow() {
     const start = Date.now();
 
     try {
-      const result = await apiFetch(`/api/vendor/${vendorName}`);
+      const result = await apiFetch(`/api/vendors/?vendor_name=${vendorName}`, {
+        method: "GET",
+      });
+      console.log(result);
 
       // Ensure the loading screen is shown for at least MIN_LOADING_MS
       const elapsed = Date.now() - start;
