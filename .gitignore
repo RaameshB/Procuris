@@ -1,5 +1,7 @@
 /.venv/
 
+lightning_logs/
+
 uv.lock
 
 *.env
