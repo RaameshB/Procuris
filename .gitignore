@@ -4,4 +4,6 @@ uv.lock
 
 *.env
 
-*/__pycache__/
+data_pipeline/postgres_data/
+.idea/
+__pycache__/
