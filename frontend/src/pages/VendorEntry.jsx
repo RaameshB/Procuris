@@ -6,7 +6,7 @@ export default function VendorEntry({ onSearch, error }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const trimmed = vendorName.trim();
+    const trimmed = vendorName.trim().toLowerCase();
     if (!trimmed) return;
     onSearch(trimmed);
   };
