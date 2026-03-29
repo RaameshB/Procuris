@@ -28,4 +28,7 @@ dependencies = [
     "adbc-driver-postgresql>=1.10.0",
     "connectorx>=0.4.5",
     "pyarrow>=23.0.1",
+    "neuralforecast>=3.1.6",
+    "utilsforecast>=0.2.15",
+    "matplotlib>=3.10.8",
 ]
