@@ -18,12 +18,11 @@ export default function Dashboard({
   initialVendorData = null,
 }) {
   const [activeTab, setActiveTab] = useState("overview");
-  const [selectedVendorId, setSelectedVendorId] = useState(initialVendorId);
   const [vendor, setVendor] = useState(initialVendorData);
   const skipInitialFetch = useRef(!!initialVendorData);
 
   useEffect(() => {
-    // Skip the first fetch if we were given pre-loaded data from VendorEntry
+    // Skip the first fetch if we were given pre-loaded data from Home
     if (skipInitialFetch.current) {
       skipInitialFetch.current = false;
       return;
@@ -31,7 +30,7 @@ export default function Dashboard({
 
     async function loadData() {
       try {
-        const result = await apiFetch(`/api/vendor/${selectedVendorId}`);
+        const result = await apiFetch(`/api/vendor/${initialVendorId}`);
         setVendor(result.data);
       } catch (err) {
         console.error(err);
@@ -39,7 +38,7 @@ export default function Dashboard({
     }
 
     loadData();
-  }, [selectedVendorId]);
+  }, [initialVendorId]);
 
   const renderTab = () => {
     switch (activeTab) {
@@ -57,23 +56,13 @@ export default function Dashboard({
   };
 
   return (
-    <Layout
-      activeTab={activeTab}
-      onTabChange={setActiveTab}
-      selectedVendorId={selectedVendorId}
-      onVendorChange={setSelectedVendorId}
-    >
+    <Layout activeTab={activeTab} onTabChange={setActiveTab} vendor={vendor}>
       {/* Page header */}
       <div className="flex items-center justify-between mb-5">
         <div>
-          <h1 className="text-xl font-bold text-white">
+          <h1 className="text-3xl font-bold text-white">
             {TAB_LABELS[activeTab]}
           </h1>
-          {activeTab !== "comparison" && vendor && (
-            <p className="text-sm text-slate-500 mt-0.5">
-              {vendor.name} · {vendor.industry} · {vendor.hq}
-            </p>
-          )}
         </div>
 
         {/* Risk score quick indicator */}

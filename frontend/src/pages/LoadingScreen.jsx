@@ -50,19 +50,19 @@ export default function LoadingScreen({ vendorName }) {
 
       {/* Background grid */}
       <div
-        className="fixed inset-0 opacity-[0.03] pointer-events-none"
+        className="fixed inset-0 opacity-[0.15] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(#3B82F6 1px, transparent 1px), linear-gradient(90deg, #3B82F6 1px, transparent 1px)",
+            "linear-gradient(#2E2E9E 4px, transparent 1px), linear-gradient(90deg, #2E2E9E 4px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
 
       {/* Corner frame decorations */}
-      <div className="fixed top-6 left-6  w-10 h-10 border-l-2 border-t-2 border-accent-blue/25 rounded-tl-md" />
-      <div className="fixed top-6 right-6 w-10 h-10 border-r-2 border-t-2 border-accent-blue/25 rounded-tr-md" />
-      <div className="fixed bottom-6 left-6  w-10 h-10 border-l-2 border-b-2 border-accent-blue/25 rounded-bl-md" />
-      <div className="fixed bottom-6 right-6 w-10 h-10 border-r-2 border-b-2 border-accent-blue/25 rounded-br-md" />
+      <div className="fixed top-6 left-6  w-10 h-10 border-l-4 border-t-4 border-white/40 rounded-tl-md" />
+      <div className="fixed top-6 right-6 w-10 h-10 border-r-4 border-t-4 border-white/40 rounded-tr-md" />
+      <div className="fixed bottom-6 left-6  w-10 h-10 border-l-4 border-b-4 border-white/40 rounded-bl-md" />
+      <div className="fixed bottom-6 right-6 w-10 h-10 border-r-4 border-b-4 border-white/40 rounded-br-md" />
 
       {/* Subtle radial glow */}
       <div
