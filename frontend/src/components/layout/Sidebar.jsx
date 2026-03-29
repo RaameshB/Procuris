@@ -22,9 +22,7 @@ export default function Sidebar({ activeTab, onTabChange }) {
           <Shield className="w-4 h-4 text-accent-blue" />
         </div>
         <div>
-          <p className="text-lg font-bold text-white leading-none">
-            ProcureGuard
-          </p>
+          <p className="text-lg font-bold text-white leading-none">Procuris</p>
           <p className="text-sm text-slate-500 mt-0.5">Risk Intelligence</p>
         </div>
       </div>

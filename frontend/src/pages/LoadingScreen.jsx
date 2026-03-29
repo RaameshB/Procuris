@@ -13,6 +13,12 @@ export default function LoadingScreen({ vendorName }) {
   const [visibleChecks, setVisibleChecks] = useState(0);
 
   useEffect(() => {
+    document.title = vendorName
+      ? `Analyzing ${vendorName}… – Procuris`
+      : "Analyzing… – Procuris";
+  }, [vendorName]);
+
+  useEffect(() => {
     if (visibleChecks >= SCAN_CHECKS.length) return;
     const id = setTimeout(() => setVisibleChecks((v) => v + 1), 520);
     return () => clearTimeout(id);
@@ -80,7 +86,7 @@ export default function LoadingScreen({ vendorName }) {
             <Shield className="w-3 h-3 text-accent-blue" />
           </div>
           <span className="text-xs font-bold text-slate-400 tracking-wide uppercase">
-            ProcureGuard
+            Procuris
           </span>
         </div>
 

@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Shield, Search, AlertCircle } from "lucide-react";
 
 export default function VendorEntry({ onSearch, error }) {
   const [vendorName, setVendorName] = useState("");
+
+  useEffect(() => {
+    document.title = "Procuris";
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +39,7 @@ export default function VendorEntry({ onSearch, error }) {
           <div className="w-20 h-20 p-2 rounded-2xl bg-accent-blue/10 border border-accent-blue/25 flex items-center justify-center mb-4 shadow-[0_0_32px_rgba(59,130,246,0.15)]">
             <Shield className="w-20 h-20 text-accent-blue" />
           </div>
-          <h1 className="text-6xl font-bold text-white">ProcureGuard</h1>
+          <h1 className="text-6xl font-bold text-white">Procuris</h1>
           <p className="text-xl text-slate-500 mt-1">
             Procurement Risk Intelligence
           </p>
@@ -85,7 +89,7 @@ export default function VendorEntry({ onSearch, error }) {
         </div>
 
         <p className="text-center text-xs text-slate-600 mt-5">
-          Powered by ProcureGuard Intelligence Engine · v1.0
+          Powered by Procuris Intelligence Engine · v1.0
         </p>
       </div>
     </div>
