@@ -1,15 +1,15 @@
-import { useState } from "react"
-import { Shield, Search, AlertCircle } from "lucide-react"
+import { useState } from "react";
+import { Shield, Search, AlertCircle } from "lucide-react";
 
-export default function VendorEntry({ onSearch, error, isSearching }) {
-  const [vendorName, setVendorName] = useState("")
+export default function VendorEntry({ onSearch, error }) {
+  const [vendorName, setVendorName] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const trimmed = vendorName.trim()
-    if (!trimmed || isSearching) return
-    onSearch(trimmed)
-  }
+    e.preventDefault();
+    const trimmed = vendorName.trim();
+    if (!trimmed) return;
+    onSearch(trimmed);
+  };
 
   return (
     <div className="min-h-screen bg-pg-base flex items-center justify-center p-4">
@@ -30,12 +30,16 @@ export default function VendorEntry({ onSearch, error, isSearching }) {
             <Shield className="w-7 h-7 text-accent-blue" />
           </div>
           <h1 className="text-2xl font-bold text-white">ProcureGuard</h1>
-          <p className="text-sm text-slate-500 mt-1">Procurement Risk Intelligence</p>
+          <p className="text-sm text-slate-500 mt-1">
+            Procurement Risk Intelligence
+          </p>
         </div>
 
         {/* Card */}
         <div className="bg-pg-surface rounded-2xl border border-pg-border p-6 card-shadow">
-          <p className="text-sm font-semibold text-white mb-1">Analyze a vendor</p>
+          <p className="text-sm font-semibold text-white mb-1">
+            Analyze a vendor
+          </p>
           <p className="text-xs text-slate-500 mb-5">
             Enter a vendor name to begin a comprehensive risk assessment.
           </p>
@@ -52,12 +56,11 @@ export default function VendorEntry({ onSearch, error, isSearching }) {
                   onChange={(e) => setVendorName(e.target.value)}
                   placeholder="e.g. TSMC, Apple, Samsung…"
                   autoFocus
-                  disabled={isSearching}
-                  className="flex-1 bg-pg-card border border-pg-border rounded-lg px-3 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-accent-blue/50 focus:ring-1 focus:ring-accent-blue/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-pg-card border border-pg-border rounded-lg px-3 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-accent-blue/50 focus:ring-1 focus:ring-accent-blue/20 transition-colors"
                 />
                 <button
                   type="submit"
-                  disabled={isSearching || !vendorName.trim()}
+                  disabled={!vendorName.trim()}
                   className="flex items-center gap-1.5 bg-accent-blue hover:bg-blue-400 text-white font-semibold px-4 py-2.5 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm whitespace-nowrap"
                 >
                   <Search className="w-3.5 h-3.5" />
@@ -80,5 +83,5 @@ export default function VendorEntry({ onSearch, error, isSearching }) {
         </p>
       </div>
     </div>
-  )
+  );
 }
